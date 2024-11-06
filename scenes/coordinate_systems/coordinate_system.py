@@ -11,12 +11,6 @@ class CoordinateSystem(Scene):
 
         label = MathTex("f(x)=0.1x(x-5)(x+5)").next_to(my_plane, UP, buff=0.2)
 
-        horiz_line = Line(
-            start = my_plane.c2p(0, my_function.underlying_function(-2)),
-            end = my_plane.c2p(-2, my_function.underlying_function(-2)),
-            stroke_color = YELLOW, stroke_width = 10
-        )
-
         self.play(DrawBorderThenFill(my_plane))
         self.play(Create(my_function), Write(label))
         self.play(FadeIn(area))
