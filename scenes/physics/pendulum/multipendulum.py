@@ -108,6 +108,6 @@ class MultiSegmentPendulum(SpaceScene):
 
         # Spur für die letzte Pendelkugel
         trace = TracedPath(pendulum.bobs[-1].get_center, stroke_color=WHITE)
-        self.add(trace)
+        self.add(trace) 
 
         self.wait(20)
