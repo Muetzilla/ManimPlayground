@@ -47,23 +47,19 @@ class TriplePendulumExample(SpaceScene):
 
 class CustomTriplePendulum(SpaceScene):
     def construct(self):
-        # Erstelle ein Pendel mit verschiedenen Längen
         pendulum = MultiPendulum(
-            ORIGIN,                # Erster Punkt
-            ORIGIN + 2 * LEFT,     # Zweiter Punkt (längerer Stab)
-            ORIGIN + LEFT + DOWN   # Dritter Punkt (kürzerer Stab)
+            ORIGIN,                
+            ORIGIN + 2 * LEFT,     
+            ORIGIN + LEFT + DOWN   
         )
 
-        # Massen anpassen (Massen sind die Kreise, die als "bobs" bezeichnet werden)
         for i, bob in enumerate(pendulum.bobs):
-            bob.mass = (i + 1) * 0.5  # Masse variiert pro Segment
+            bob.mass = (i + 1) * 0.5  
 
-        # Farben anpassen
-        colors = [RED, GREEN, BLUE]  # Farben für die Pendelmasse
+        colors = [RED, GREEN, BLUE] 
         for i, bob in enumerate(pendulum.bobs):
             bob.set_color(colors[i])
 
-        # Das Pendel zur Szene hinzufügen
         self.add(pendulum)
 
         self.make_rigid_body(*pendulum.bobs)
