@@ -80,7 +80,6 @@ class CustomTriplePendulum(SpaceScene):
 
 class MultiSegmentPendulum(SpaceScene):
     def construct(self):
-        # Erstelle ein Pendel mit 5 Segmenten
         anchor_points = [
             ORIGIN * LEFT + DOWN,
             ORIGIN + 1 * LEFT,
@@ -90,23 +89,17 @@ class MultiSegmentPendulum(SpaceScene):
 
         pendulum = MultiPendulum(*anchor_points)
         for i, bob in enumerate(pendulum.bobs):
-           bob.mass = (i + 1) * 0.5  # Masse variiert pro Segment
-
-        # Farben zufällig setzen
+           bob.mass = (i + 1) * 0.5  
         colors = [RED, GREEN,PURPLE, BLUE, ORANGE]
         for i, bob in enumerate(pendulum.bobs):
             bob.set_color(colors[i % len(colors)])
 
-        # Füge das Pendel zur Szene hinzu
         self.add(pendulum)
 
-        # Mach die Massen physikalisch
         self.make_rigid_body(*pendulum.bobs)
 
-        # Starte die Simulation
         pendulum.start_swinging()
 
-        # Spur für die letzte Pendelkugel
         trace = TracedPath(pendulum.bobs[-1].get_center, stroke_color=WHITE)
         self.add(trace) 
 
