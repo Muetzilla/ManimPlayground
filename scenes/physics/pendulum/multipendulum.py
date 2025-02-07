@@ -66,13 +66,10 @@ class CustomTriplePendulum(SpaceScene):
         # Das Pendel zur Szene hinzufügen
         self.add(pendulum)
 
-        # Die Pendelmassen zu starren Körpern machen
         self.make_rigid_body(*pendulum.bobs)
 
-        # Starte die Bewegung
         pendulum.start_swinging()
 
-        # Spur für den letzten Pendelkörper
         trace = TracedPath(pendulum.bobs[-1].get_center, stroke_color=YELLOW)
         self.add(trace)
 
