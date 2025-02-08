@@ -12,3 +12,12 @@ class DrawSingleElement(Scene):
                 filename=files_path / "Elements.csv", atomic_number=6
             )
         )
+
+class DrawMagnesium(Scene):
+
+    def construct(self):
+        self.add(
+            MElementObject.from_csv_file_data(
+                filename=files_path / "Elements.csv", atomic_number=12
+            )
+        )
