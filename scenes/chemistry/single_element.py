@@ -75,3 +75,38 @@ class DrawMultipleElements(Scene):
 
         self.wait(2)
 
+class CombineElements(Scene):
+    def construct(self):
+        element1 = MElementObject.from_csv_file_data(
+            filename=elements_filename, atomic_number=12
+        )
+        
+        element2 = MElementObject.from_csv_file_data(
+            filename=elements_filename, atomic_number=8
+        )
+
+        fused_element = MElementObject.from_csv_file_data(
+            filename=elements_filename, atomic_number=20
+        )  
+
+        element1.shift(LEFT * 3 + UP * 2)
+        element2.shift(LEFT * 3 + DOWN * 2)
+        fused_element.shift(RIGHT * 3)
+
+        self.add(element1, element2)
+
+        arrow1 = Arrow(start=element1.get_right(), end=fused_element.get_left(), buff=0.2)
+        arrow2 = Arrow(start=element2.get_right(), end=fused_element.get_left(), buff=0.2)
+
+        self.play(
+            GrowArrow(arrow1),
+            GrowArrow(arrow2),
+            run_time=1
+        )
+
+        self.play(
+            FadeIn(fused_element),
+            run_time=2
+        )
+
+        self.wait(2)
