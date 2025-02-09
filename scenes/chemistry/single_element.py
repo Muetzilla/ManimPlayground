@@ -22,6 +22,13 @@ class DrawMagnesium(Scene):
             )
         )
 
+
+class DrawSingleElemntFromPeriodicTable(Scene):
+    def constructor(self):
+        periodic_table = PeriodicTable(data_file=elements_filename)
+        iron_element = periodic_table.get_element("Fe")
+        self.add(periodic_table)
+
 class DrawTwoElements(Scene):
     def construct(self):
         magnesium_element = MElementObject.from_csv_file_data(
