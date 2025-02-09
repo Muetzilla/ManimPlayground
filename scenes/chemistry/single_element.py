@@ -6,7 +6,6 @@ files_path = script_path / "element_files"
 elements_filename = files_path / "Elements.csv"
 
 class DrawSingleElement(Scene):
-
     def construct(self):
         self.add(
             MElementObject.from_csv_file_data(
