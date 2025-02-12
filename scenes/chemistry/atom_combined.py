@@ -14,11 +14,11 @@ tex_template.add_to_preamble(r"\usepackage{mhchem}")
 
 
 class MagnesiumAtomAnimation(Scene):
-    def construct(self):
-        title = Tex(r"\ce{Magnesium Element}", tex_template=tex_template)
+    def drawSingleWholeElement(self, atomName, atomElectron, atomProton, atomNeutron):
+        title = Tex(r"\ce{"+ atomName+"}", tex_template=tex_template)
         title.to_edge(UP)
 
-        atom_bohr = BohrAtom(e=12, p=12, n=14)
+        atom_bohr = BohrAtom(e=atomElectron, p=atomProton, n=atomNeutron)
         atom_bohr.scale(0.5)
         atom_bohr.shift(3 * RIGHT)
         atom_center = atom_bohr.get_center()
@@ -40,3 +40,14 @@ class MagnesiumAtomAnimation(Scene):
             run_time=3
         )
         self.wait(1)
+
+    def construct(self):
+        atomNames = ["Mg", "Na"]
+        atomElectrons = [12, 11]
+        atomProtons = [12, 11]
+        atomNeutrons = [14, 12]
+        for i in range(2):
+            self.drawSingleWholeElement(atomNames[i], atomElectrons[i], atomProtons[i], atomNeutrons[i])
+            self.clear()
+
+    
