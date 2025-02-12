@@ -39,7 +39,7 @@ class MagnesiumAtomAnimation(Scene):
             ),
             run_time=3
         )
-        self.wait(1)
+        self.wait(0.5)
 
     def construct(self):
         elements = [
