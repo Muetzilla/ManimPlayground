@@ -23,7 +23,7 @@ class MagnesiumAtomAnimation(Scene):
         atom_bohr.shift(3 * RIGHT)
         atom_center = atom_bohr.get_center()
 
-        atom_information = MElementObject.from_csv_file_data(filename=elements_filename, atomic_number=12)
+        atom_information = MElementObject.from_csv_file_data(filename=elements_filename, atomic_number=atomElectron)
         atom_information.shift(3 * LEFT).scale(0.5)
         atom_information.set_stroke(width=0)
 
@@ -43,8 +43,17 @@ class MagnesiumAtomAnimation(Scene):
 
     def construct(self):
         elements = [
-            {"name": "Mg", "electrons": 12, "protons": 12, "neutrons": 14},
-            {"name": "Na", "electrons": 11, "protons": 11, "neutrons": 12},
+            {"name": "Magnesium", "electrons": 12, "protons": 12, "neutrons": 14},
+            {"name": "Sodium", "electrons": 11, "protons": 11, "neutrons": 12},
+            #{"name": "Oxygen", "electrons": 8, "protons": 8, "neutrons": 8},
+            #{"name": "Carbon", "electrons": 6, "protons": 6, "neutrons": 6},
+            #{"name": "Hydrogen", "electrons": 1, "protons": 1, "neutrons": 0},
+            #{"name": "Nitrogen", "electrons": 7, "protons": 7, "neutrons": 7},
+            #{"name": "Calcium", "electrons": 20, "protons": 20, "neutrons": 20},
+            #{"name": "Iron", "electrons": 26, "protons": 26, "neutrons": 30},
+            #{"name": "Copper", "electrons": 29, "protons": 29, "neutrons": 35},
+            #{"name": "Zinc", "electrons": 30, "protons": 30, "neutrons": 35},
+            #{"name": "Silver", "electrons": 47, "protons": 47, "neutrons": 61},
         ]
         
         for element in elements:
@@ -56,6 +65,6 @@ class MagnesiumAtomAnimation(Scene):
             )
             if element != elements[-1]:
                 self.play(FadeOut(*self.mobjects))
-                self.clear()
+                self.wait(0.5)
                 self.play(FadeIn(*self.mobjects))
 
