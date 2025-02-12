@@ -42,12 +42,20 @@ class MagnesiumAtomAnimation(Scene):
         self.wait(1)
 
     def construct(self):
-        atomNames = ["Mg", "Na"]
-        atomElectrons = [12, 11]
-        atomProtons = [12, 11]
-        atomNeutrons = [14, 12]
-        for i in range(2):
-            self.drawSingleWholeElement(atomNames[i], atomElectrons[i], atomProtons[i], atomNeutrons[i])
-            self.clear()
+        elements = [
+            {"name": "Mg", "electrons": 12, "protons": 12, "neutrons": 14},
+            {"name": "Na", "electrons": 11, "protons": 11, "neutrons": 12},
+        ]
+        
+        for element in elements:
+            self.drawSingleWholeElement(
+                element["name"], 
+                element["electrons"], 
+                element["protons"], 
+                element["neutrons"]
+            )
+            if element != elements[-1]:
+                self.play(FadeOut(*self.mobjects))
+                self.clear()
+                self.play(FadeIn(*self.mobjects))
 
-    
