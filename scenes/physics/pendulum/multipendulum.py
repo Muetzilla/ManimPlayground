@@ -12,23 +12,22 @@ class DoublePendulum(SpaceScene):
 
 class DoublePendulumExample(SpaceScene):
     def construct(self):
-        # Erstelle ein Doppelpendel mit Startpunkten
-        pendulum = MultiPendulum(ORIGIN, LEFT)
+        pendulum = MultiPendulum(
+            ORIGIN * 3,
+            LEFT * 1.5
+            )
 
-        # Füge das Pendel zur Szene hinzu
+        pendulum.bobs[0].mass = 1
+        pendulum.bobs[1].mass = 2
         self.add(pendulum)
 
-        # Mache die Massen zu physikalischen Objekten
         self.make_rigid_body(*pendulum.bobs)
 
-        # Starte die Bewegung
         pendulum.start_swinging()
 
-        # Spur des letzten Pendelkörpers hinzufügen
         trace = TracedPath(pendulum.bobs[-1].get_center, stroke_color=BLUE)
         self.add(trace)
 
-        # Animation laufen lassen
         self.wait(20)
 
 class TriplePendulumExample(SpaceScene):
