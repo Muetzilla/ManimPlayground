@@ -19,6 +19,7 @@ class DoublePendulumExample(SpaceScene):
 
         pendulum.bobs[0].mass = 1
         pendulum.bobs[1].mass = 2
+
         self.add(pendulum)
 
         self.make_rigid_body(*pendulum.bobs)
@@ -38,7 +39,6 @@ class TriplePendulumExample(SpaceScene):
         self.make_rigid_body(*pendulum.bobs)
         pendulum.start_swinging()
 
-        # Spur des letzten Pendelkörpers
         trace = TracedPath(pendulum.bobs[-1].get_center, stroke_color=RED)
         self.add(trace)
 
