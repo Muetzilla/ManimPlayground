@@ -13,12 +13,15 @@ class DoublePendulum(SpaceScene):
 class DoublePendulumExample(SpaceScene):
     def construct(self):
         pendulum = MultiPendulum(
-            ORIGIN * 3,
-            LEFT * 1.5
+            ORIGIN * 0.5,
+            LEFT * 0.75 + 1.25 * UP
             )
 
-        pendulum.bobs[0].mass = 1
-        pendulum.bobs[1].mass = 2
+        pendulum.bobs[0].mass = 100
+        pendulum.bobs[1].mass = 50
+
+        pendulum.bobs[0].color = RED
+        pendulum.bobs[1].color = GREEN
 
         self.add(pendulum)
 
@@ -29,7 +32,7 @@ class DoublePendulumExample(SpaceScene):
         trace = TracedPath(pendulum.bobs[-1].get_center, stroke_color=BLUE)
         self.add(trace)
 
-        self.wait(20)
+        self.wait(35)
 
 class TriplePendulumExample(SpaceScene):
     def construct(self):
