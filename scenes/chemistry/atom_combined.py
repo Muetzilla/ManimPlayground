@@ -51,7 +51,7 @@ class MagnesiumAtomAnimation(Scene):
             {"name": "Nitrogen", "electrons": 7, "protons": 7, "neutrons": 7},
             {"name": "Calcium", "electrons": 20, "protons": 20, "neutrons": 20},
             {"name": "Iron", "electrons": 26, "protons": 26, "neutrons": 30},
-            #{"name": "Copper", "electrons": 29, "protons": 29, "neutrons": 35},
+            {"name": "Copper", "electrons": 29, "protons": 29, "neutrons": 35},
             #{"name": "Zinc", "electrons": 30, "protons": 30, "neutrons": 35},
             #{"name": "Silver", "electrons": 47, "protons": 47, "neutrons": 61},
         ]
