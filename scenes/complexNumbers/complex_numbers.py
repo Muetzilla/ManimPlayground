@@ -9,6 +9,8 @@ class NormalForm(Scene):
         sqrtMinusOne.move_to(RIGHT)
         plusLabel = MathTex('+')
         multiplication = MathTex('*')
+
+        
         multiplication.move_to(RIGHT)
         sqrtMinusOne.next_to(multiplication)
         arrow = Arrow(LEFT, RIGHT, color=BLUE).next_to(normalFormLabel, LEFT)
